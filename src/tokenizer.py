@@ -1,19 +1,20 @@
 """
-Tokenizer is a class that consists of methods to tokenize a text.
+TextPy  is a class that consists of methods to tokenize a text.
 """
-class Tokenize:
+class TextPy:
     """ Tokenizer"""
     def __init__(self, text):
         """initializes a tokenizer"""
         self.text = text
         self.words = []
+        self.punc = dict()
         self.word_seperator = set(['\t', ' ', '?', '.', ',', '!', ':', ';'])
         self.sen_separators = set(['.', ';', '?'])
         self.parse_text()
 
     def get_punc(self):
         """Returns the list of punctuations in the text"""
-        return self.text
+        return self.punc
 
     def get_dates(self):
         """Returns the list of dates in the text"""
@@ -41,7 +42,7 @@ class Tokenize:
 
     def get_punctuations(self):
         """Returns the list of punctuations"""
-        return self.text
+        return self.punc
 
     def get_questions(self):
         """Returns the questions in the text"""
@@ -60,12 +61,17 @@ class Tokenize:
                     current_word = ''.join(word_queue)
                     self.words.append(current_word)
                     word_queue = []
+                if self.text[i] in self.punc:
+                    self.punc[self.text[i]].append(i)
+                else:
+                    self.punc[self.text[i]] = [i]
             else:
                 word_queue.append(self.text[i])
         if word_queue:
             self.words.append(''.join(word_queue))
 
-T = Tokenize('Hello World, It was the best of the times, it was the worst of the times, It was the\
+T = TextPy('Hello World, It was the best of the times, it was the worst of the times, It was the\
         epoch of the past. What does it mean ?')
 
 print(T.get_words())
+print(T.get_punc())
