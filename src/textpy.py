@@ -16,7 +16,6 @@ class TextPy:
         self.word_seperator = set(['\t', ' ', '?', '.', ',', '!', ':', ';'])
         self.sen_seperator = set(['.', '?'])
         self.articles = set(['a', 'an', 'the'])
-        self.prepositions = set(['on', 'in', 'of', 'from', 'under'])
         self.parse_text()
 
     def parse_text(self):
@@ -46,6 +45,7 @@ class TextPy:
             self.words.append(''.join(word_queue))
 
     def get_articles(self):
+        """Returns the article and the respective frequencies. """
         article_frequency = dict()
         for word in self.words:
             word = word.lower()
@@ -57,10 +57,12 @@ class TextPy:
         return article_frequency
 
     def get_preps(self):
+        """Returns the prepositions and the respective frequencies."""
+        prepositions = set(['on', 'in', 'of', 'from', 'under'])
         prep_frequency = dict()
         for word in self.words:
             word = word.lower()
-            if word in self.prepositions:
+            if word in prepositions:
                 if word in prep_frequency:
                     prep_frequency[word] += 1
                 else:
