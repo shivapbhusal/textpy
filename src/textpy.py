@@ -58,7 +58,17 @@ class TextPy:
 
     def get_preps(self):
         """Returns the prepositions and the respective frequencies."""
-        prepositions = set(['on', 'in', 'of', 'from', 'under'])
+        prepositions = set(['on', 'in', 'of', 'from', 'under', 'aboard', 'about', 'above',
+                            'across', 'after', 'against', 'along', 'amid', 'among', 'anti',
+                            'around', 'as', 'at', 'before', 'behind', 'below', 'beneath',
+                            'beside', 'besides', 'between', 'beyond', 'but', 'by', 'concerning',
+                            'considering', 'despite', 'down', 'during', 'except', 'excepting',
+                            'excluding', 'following', 'for', 'from', 'in', 'inside', 'into',
+                            'like', 'minus', 'near', 'off', 'on', 'onto', 'opposite',
+                            'outside', 'over', 'past', 'per', 'plus', 'regarding', 'round',
+                            'save', 'since', 'than', 'through', 'to', 'toward', 'towards',
+                            'under', 'underneath', 'unlike', 'until', 'up', 'upon', 'versus',
+                            'via', 'with', 'within', 'without'])
         prep_frequency = dict()
         for word in self.words:
             word = word.lower()
