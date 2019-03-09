@@ -14,73 +14,53 @@ class TextPy:
         self.sentences = []
         self.punc = dict()
         self.word_seperator = set(['\t', ' ', '?', '.', ',', '!', ':', ';'])
-        self.sen_seperator = set(['.', '?'])
-        self.articles = set(['a', 'an', 'the'])
-        self.parse_text()
+        self.sen_seperator = set(['.', '?', '!'])
+        self.parse_words()
+        self.parse_sentences()
+        self.parse_punc()
 
-    def parse_text(self):
-        """returns all the words in a text"""
+    def parse_words(self):
+        """Parses the text and gets the list of words."""
         word_queue = []
-        sen_queue = []
         for i in range(len(self.text)):
-            if self.text[i] in self.sen_seperator:
-                if sen_queue:
-                    self.sentences.append(''.join(sen_queue))
-                    sen_queue = []
-            else:
-                sen_queue.append(self.text[i])
-
             if self.text[i] in self.word_seperator:
                 if word_queue:
                     current_word = ''.join(word_queue)
                     self.words.append(current_word)
                     word_queue = []
                 if self.text[i] in self.punc:
-                    self.punc[self.text[i]].append(i)
+                    self.punc[self.text[i]] += 1
                 else:
-                    self.punc[self.text[i]] = [i]
+                    self.punc[self.text[i]] = 1
             else:
                 word_queue.append(self.text[i])
         if word_queue:
             self.words.append(''.join(word_queue))
 
-    def get_articles(self):
-        """Returns the article and the respective frequencies. """
-        article_frequency = dict()
-        for word in self.words:
-            word = word.lower()
-            if word in self.articles:
-                if word in article_frequency:
-                    article_frequency[word] += 1
-                else:
-                    article_frequency[word] = 1
-        return article_frequency
+    def parse_sentences(self):
+        """Parses the text and gets the list of sentences."""
+        sen_queue = []
+        for i in range(len(self.text)):
+            if self.text[i] in self.sen_seperator:
+                if sen_queue:
+                    self.sentences.append(''.join(sen_queue)+self.text[i])
+                    sen_queue = []
+            else:
+                sen_queue.append(self.text[i])
+        if sen_queue:
+            self.sentences.append(''.join(sen_queue))
 
-    def get_preps(self):
-        """Returns the prepositions and the respective frequencies."""
-        prepositions = set(['on', 'in', 'of', 'from', 'under', 'aboard', 'about', 'above',
-                            'across', 'after', 'against', 'along', 'amid', 'among', 'anti',
-                            'around', 'as', 'at', 'before', 'behind', 'below', 'beneath',
-                            'beside', 'besides', 'between', 'beyond', 'but', 'by', 'concerning',
-                            'considering', 'despite', 'down', 'during', 'except', 'excepting',
-                            'excluding', 'following', 'for', 'from', 'in', 'inside', 'into',
-                            'like', 'minus', 'near', 'off', 'on', 'onto', 'opposite',
-                            'outside', 'over', 'past', 'per', 'plus', 'regarding', 'round',
-                            'save', 'since', 'than', 'through', 'to', 'toward', 'towards',
-                            'under', 'underneath', 'unlike', 'until', 'up', 'upon', 'versus',
-                            'via', 'with', 'within', 'without'])
-        prep_frequency = dict()
-        for word in self.words:
-            word = word.lower()
-            if word in prepositions:
-                if word in prep_frequency:
-                    prep_frequency[word] += 1
+    def parse_punc(self):
+        """Parses the text and gets the frequency of punctuations."""
+        for i in range(len(self.text)):
+            if self.text[i] in self.sen_seperator|self.word_seperator:
+                if self.text[i] in self.punc:
+                    self.punc[self.text[i]] += 1
                 else:
-                    prep_frequency[word] = 1
-        return prep_frequency
+                    self.punc[self.text[i]] = 1
 
     def get_punc(self):
-        """Returns the punctuations and the list of their occurances by position"""
+        """Returns the punctuations and the frequency of their occurrance"""
         return self.punc
 
     def get_dates(self):
@@ -108,12 +88,8 @@ class TextPy:
         return self.text
 
     def get_punctuations(self):
-        """Returns the list of punctuations"""
+        """Returns the list of punctuations in the specific order."""
         return self.punc
-
-    def get_questions(self):
-        """Returns the questions in the text"""
-        return self.text
 
     def get_words(self):
         """Returns all the words in the text"""
@@ -131,11 +107,9 @@ class TextPy:
         return word_dict
 
 T = TextPy('Hello World, It was the best of the times, it was the worst of the times, It was the\
-        epoch of the past. What does it mean ? What a great man !')
+        epoch of the past. What does it mean ? What a great man ! Where are the types of people ?')
 
 print(T.get_words())
 print(T.get_punc())
 print(T.get_sentences())
 print(T.word_frequency())
-print(T.get_articles())
-print(T.get_preps())
