@@ -6,7 +6,7 @@ In other words, TextPy helps in the structure analysis of a given text.
 import re
 
 class TextPy:
-    """TextPy consists of methods that help parse Urls, sentences, words, dates,
+    """TextPy consists of methods that parse Urls, sentences, words, dates,
     and numbers from a given text.
     """
     def __init__(self, text):
@@ -18,7 +18,6 @@ class TextPy:
 
     def words(self):
         """Parses the text and gets the list of words."""
-
         words =[]
         word_queue = []
         for i in range(len(self.text)):
@@ -100,8 +99,6 @@ class TextPy:
         """Returns all the numbers from the text"""
         return self.numbers
 
-T = TextPy('Hello World, It was the best of the times, it was the worst of the times, It was the\
-        epoch of the past.In 2011/12/30, What does it mean ? What a great man ! Where are the types of people ?\
-           Test string 2010-10-20 Hello World 419-377-4183')
-
-print(T.words())
+    def misspelled(self):
+        """Returns the list of mispelled English words"""
+        raise NotImplementedError()

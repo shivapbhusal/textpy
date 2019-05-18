@@ -5,6 +5,12 @@ avearge length of sentences, average length of words, frequency of punctuations 
 # Getting textpy
 ```pip install textpy```
 
+#System Requirements
+You need a Python 3.5+ interpreter to run PyText. 
+
+Platform Support:
+
+
 # Examples:
 ```python
 import textpy
@@ -13,5 +19,32 @@ T = TextPy('Hello World, It was the best of the times, it was the worst of the t
            Test string 2010-10-20 Hello World 419-377-4183')
 print(T.words)
 ```
+
+# Method Documentation
+## words():
+Words is a public method that returns all the words from the given text.
+
+Example:
+
+## word_frequency():
+Returns the frequency of all the words.
+
+## punc_frequency():
+Returns the frequency of all the punctuations.
+
+## sentences():
+Returns all the sentences from the text.
+
+## dates():
+Returns all the dates from the text. 
+
+## numbers():
+Returns all the numbers from the text. 
+
+##telephone():
+Returns all the telephone numbers from the given text. 
+
+##urls():
+Returns all the urls from the given text.
 
 
