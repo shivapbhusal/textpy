@@ -20,7 +20,7 @@ T = TextPy('Hello World, It was the best of the times, it was the worst of the t
 print(T.words)
 ```
 
-# Method Documentation
+# Public Methods
 ## words():
 Words is a public method that returns all the words from the given text.
 
@@ -41,10 +41,10 @@ Returns all the dates from the text.
 ## numbers():
 Returns all the numbers from the text. 
 
-##telephone():
+## telephone():
 Returns all the telephone numbers from the given text. 
 
-##urls():
+## urls():
 Returns all the urls from the given text.
 
 
