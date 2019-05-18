@@ -9,6 +9,7 @@ avearge length of sentences, average length of words, frequency of punctuations 
 You need a Python 3.5+ interpreter to run PyText. 
 
 Platform Support:
+Currently TextPy is supported only in Linux and Mac. The windows version will be released soon.
 
 
 # Examples:

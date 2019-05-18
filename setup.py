@@ -10,5 +10,5 @@ setup(
         author = 'Shiva Bhusal',
         author_email = 'civabhusal@gmail.com',
         package_data ={},
-        description = 'A Python package to extract structural features from a text'
+        description = 'A Python package to extract features from a text'
         )

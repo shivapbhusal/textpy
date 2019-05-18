@@ -9,96 +9,95 @@ class TextPy:
     """TextPy consists of methods that parse Urls, sentences, words, dates,
     and numbers from a given text.
     """
-    def __init__(self, text):
-        """initializes a tokenizer"""
-        self.text = text
-        self.punc = dict()
-        self.word_seperator = set(['\t', ' ', '?', '.', ',', '!', ':', ';'])
-        self.sen_seperator = set(['.', '?', '!'])
+    def get_english_words(self):
+        """
+        Takes the English dictionary from the unix system and returns the list of words.
+        """
+        english_word_set = set()
+        with open('/usr/share/dict/words', 'r') as english_dict:
+            for english_word in english_dict:
+                english_word = english_word.strip()
+                english_word_set.add(english_word)
+            english_dict.close()
+        return english_word_set
 
-    def words(self):
+    def words(self, text):
         """Parses the text and gets the list of words."""
-        words =[]
+        word_seperator = set(['\t', ' ', '?', '.', ',', '!', ':', ';'])
+        words = []
         word_queue = []
-        for i in range(len(self.text)):
-            if self.text[i] in self.word_seperator:
+        for i in range(len(text)):
+            if text[i] in word_seperator:
                 if word_queue:
                     current_word = ''.join(word_queue)
                     words.append(current_word)
                     word_queue = []
-                if self.text[i] in self.punc:
-                    self.punc[self.text[i]] += 1
-                else:
-                    self.punc[self.text[i]] = 1
             else:
-                word_queue.append(self.text[i])
+                word_queue.append(text[i])
         if word_queue:
             words.append(''.join(word_queue))
 
         return words
 
-    def punc_frequency(self):
+    def punc_frequency(self, text):
         """Returns the frequency of the punctuations used"""
-        return self.punc
+        punc_list = ['?', ',', ':', ';', ',']
+        punc = dict()
+        for i in range(len(text)):
+            if text[i] in punc_list:
+                if text[i] in punc:
+                    punc[text[i]] += 1
+                else:
+                    punc[text[i]] = 1
+        return punc
 
-    def sentences(self):
+    def sentences(self, text):
         """Parses the text and gets the list of sentences."""
-        sentences=[]
+        sen_seperator = set(['.', '?', '!'])
+        sentences = []
         sen_queue = []
-        for i in range(len(self.text)):
-            if self.text[i] in self.sen_seperator:
+        for i in range(len(text)):
+            if text[i] in sen_seperator:
                 if sen_queue:
-                    sentences.append(''.join(sen_queue)+self.text[i])
+                    sentences.append(''.join(sen_queue)+text[i])
                     sen_queue = []
             else:
-                sen_queue.append(self.text[i])
+                sen_queue.append(text[i])
         if sen_queue:
             sentences.append(''.join(sen_queue))
         return sentences
 
-    def dates(self):
-        """Parses the text and gets the frequency of punctuations."""
+    def dates(self, text):
+        """Parses the text and gets all the dates present in the text."""
         pattern = re.compile(r'(\d+/\d+/\d+)|(\d+-\d+-\d+)')
-        dates = re.findall(pattern, self.text)
+        dates = re.findall(pattern, text)
         return dates
 
-    def numbers(self):
+    def numbers(self, text):
         """Parses the text and gets the list of all the numbers."""
         pattern = re.compile(r'\d+')
-        numbers = re.findall(pattern, self.text)
+        numbers = re.findall(pattern, text)
         return numbers
 
-    def telephone(self):
+    def telephone(self, text):
         """Parses the text and gets the list of all the telephone numbers."""
         pattern = re.compile(r'^(?:\+?1[-.*]?)?\(?([0-9]{3})\)?[-.*]?([0-9]{3})[-.*]?([0-9]{4})$')
-        telephone_nums = re.findall(pattern, self.text)
+        telephone_nums = re.findall(pattern, text)
         return telephone_nums
 
-    def urls(self):
+    def urls(self, text):
         """Gets the list of all the Urls in the text."""
         pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
-        urls = re.findall(pattern, self.text)
+        urls = re.findall(pattern, text)
         return urls
 
-    def word_frequency(self):
-        """Returns the five most frequent words"""
-        word_dict = dict()
-        for word in self.words:
-            word = word.lower()
-            if word in word_dict:
-                word_dict[word] += 1
-            else:
-                word_dict[word] = 1
-        return word_dict
-
-    def get_telephone(self):
-        """Returns the telephone numbers from the text"""
-        return self.telephone
-
-    def get_numbers(self):
-        """Returns all the numbers from the text"""
-        return self.numbers
-
-    def misspelled(self):
+    def misspelled_words(self, text):
         """Returns the list of mispelled English words"""
-        raise NotImplementedError()
+        misspelled_list = []
+        english_word_set = self.get_english_words()
+        all_words = self.words(text)
+        for word in all_words:
+            lower_case_word = word.lower()
+            if lower_case_word not in english_word_set:
+                misspelled_list.append(word)
+        return misspelled_list
