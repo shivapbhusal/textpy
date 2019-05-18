@@ -14,6 +14,7 @@ class TextPy:
         self.text = text
         self.words = []
         self.sentences = []
+        self.url = []
         self.punc = dict()
         self.word_seperator = set(['\t', ' ', '?', '.', ',', '!', ':', ';'])
         self.sen_seperator = set(['.', '?', '!'])
@@ -76,38 +77,21 @@ class TextPy:
         pattern = re.compile(r'(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})')
         self.telephone = re.findall(pattern, self.text)
     
-    def parse_filenames(self):
-        """Gets the list of all the Urls in the text."""
-        pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
-        self.urls = re.findall(pattern, self.text)
-
-    def get_dates(self):
-        """Returns the list of dates in the text"""
-        return self.dates
-
-    def get_sentences(self):
-        """Returns the list of sentences in the text"""
-        return self.sentences
-
-    def get_numbers(self):
-        """Returns the numbers in the text"""
-        return self.numbers
-
-    def get_telephone(self):
-        """Returns the telephone numbers in the text"""
-        return self.telephone
-
-    def get_url(self):
-        """Returns the URLs in the given text"""
-        return self.text
-
-    def get_filenames(self):
-        """Returns the filenames from the text"""
-        return self.text
-
     def get_words(self):
         """Returns all the words in the text"""
         return self.words
+
+    def get_sentences(self):
+        """Returns all the sentences in the text"""
+        return self.sentences
+
+    def get_dates(self):
+        """Returns all the dates in the text"""
+        return self.dates
+
+    def get_url(self):
+        """Returns all the list of Urls in the text"""
+        return self.url
 
     def word_frequency(self):
         """Returns the five most frequent words"""
