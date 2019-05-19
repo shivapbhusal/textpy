@@ -14,7 +14,7 @@ class TestMethods(unittest.TestCase):
     
     def test_sentences(self):
     	T = tp.TextPy()
-    	result = T.sentences("Hello World.My name is Pablo.")
+    	result = T.sentences("Hello World.My name is Pablo.)
     	self.assertEqual(result[0],"Hello World.")
     	self.assertEqual(result[1],"My name is Pablo.")
     
