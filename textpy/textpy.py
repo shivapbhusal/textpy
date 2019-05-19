@@ -69,7 +69,7 @@ class TextPy:
 
     def dates(self, text):
         """Parses the text and gets all the dates present in the text."""
-        pattern = re.compile(r'(\d+/\d+/\d+)|(\d+-\d+-\d+)')
+        pattern = re.compile(r'[\d]{1,2}/[\d]{1,2}/[\d]{4}')
         dates = re.findall(pattern, text)
         return dates
 
@@ -81,7 +81,7 @@ class TextPy:
 
     def telephone(self, text):
         """Parses the text and gets the list of all the telephone numbers."""
-        pattern = re.compile(r'^(?:\+?1[-.*]?)?\(?([0-9]{3})\)?[-.*]?([0-9]{3})[-.*]?([0-9]{4})$')
+        pattern = re.compile(r'(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})')
         telephone_nums = re.findall(pattern, text)
         return telephone_nums
 

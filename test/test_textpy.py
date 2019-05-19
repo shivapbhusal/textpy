@@ -14,14 +14,14 @@ class TestMethods(unittest.TestCase):
     
     def test_sentences(self):
     	T = tp.TextPy()
-    	result = T.sentences("Hello World.My name is Pablo.)
+    	result = T.sentences("Hello World.My name is Pablo.")
     	self.assertEqual(result[0],"Hello World.")
     	self.assertEqual(result[1],"My name is Pablo.")
     
     def test_dates(self):
     	T=tp.TextPy()
-    	result = T.dates("Hello World. 2015-01-30")
-    	self.assertEqual(result[0],'2015-01-30')
+    	result = T.dates("My name is John Doe. Today's date is 05/20/2019")
+    	self.assertEqual(result[0],'05/20/2019')
 
     def test_numbers(self):
     	T=tp.TextPy()
@@ -37,6 +37,11 @@ class TestMethods(unittest.TestCase):
     	T = tp.TextPy()
     	result = T.urls("The CNN url is https://www.cnn.com/")
     	self.assertEqual(result[0],'https://www.cnn.com/')
+
+    def test_telephone(self):
+        T = tp.TextPy()
+        result = T.telephone("Hello World My number is 319-378-8183")
+        self.assertEqual(result[0],'319-378-8183')
 
 
 if __name__ == '__main__':
