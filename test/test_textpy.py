@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/Users/shivabhusal/Documents/research/textpy/src')
+sys.path.append('/Users/shivabhusal/Documents/research/textpy/textpy')
 
 import textpy as tp
 import unittest

@@ -1,13 +1,13 @@
 __author__ = 'Shiva Bhusal'
 
-import textpy as tp
+import textpy
 
 def get_words(text):
     '''
     Converts roman number to Integer.
     '''
-    T = tp.TextPy()
-    parsed_text = T.get_words(text)
+    T = textpy.TextPy()
+    parsed_text = T.words(text)
     return parsed_text
 
 def get_sentences(num):
