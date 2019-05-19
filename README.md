@@ -31,8 +31,8 @@ import textpy
 print(textpy.words('Hello World !'))
 ```
 
-# Public Methods
-## words
+# Method References
+## Extracting words from the text
 Words is a public method that returns all the words from the given text.
 
 Example:

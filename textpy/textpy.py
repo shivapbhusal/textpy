@@ -23,6 +23,9 @@ class TextPy:
 
     def words(self, text):
         """Parses the text and gets the list of words."""
+        if type(text) is not str:
+            raise Exception("The argument should be a string")
+
         word_seperator = set(['\t', ' ', '?', '.', ',', '!', ':', ';'])
         words = []
         word_queue = []
@@ -41,6 +44,9 @@ class TextPy:
 
     def punc_frequency(self, text):
         """Returns the frequency of the punctuations used"""
+        if type(text) is not str:
+            raise Exception("The argument should be a string")
+
         punc_list = ['?', ',', ':', ';', ',']
         punc = dict()
         for i in range(len(text)):
@@ -53,6 +59,10 @@ class TextPy:
 
     def sentences(self, text):
         """Parses the text and gets the list of sentences."""
+
+        if type(text) is not str:
+            raise Exception("The argument should be a string")
+
         sen_seperator = set(['.', '?', '!'])
         sentences = []
         sen_queue = []
@@ -69,30 +79,47 @@ class TextPy:
 
     def dates(self, text):
         """Parses the text and gets all the dates present in the text."""
+
+        if type(text) is not str:
+            raise Exception("The argument should be a string")
+
         pattern = re.compile(r'[\d]{1,2}/[\d]{1,2}/[\d]{4}')
         dates = re.findall(pattern, text)
         return dates
 
     def numbers(self, text):
         """Parses the text and gets the list of all the numbers."""
+        if type(text) is not str:
+            raise Exception("The argument should be a string")
+
+
         pattern = re.compile(r'\d+')
         numbers = re.findall(pattern, text)
         return numbers
 
     def telephone(self, text):
         """Parses the text and gets the list of all the telephone numbers."""
+        if type(text) is not str:
+            raise Exception("The argument should be a string")
+
         pattern = re.compile(r'(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})')
         telephone_nums = re.findall(pattern, text)
         return telephone_nums
 
     def urls(self, text):
         """Gets the list of all the Urls in the text."""
+        if type(text) is not str:
+            raise Exception("The argument should be a string")
+
         pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
         urls = re.findall(pattern, text)
         return urls
 
     def misspelled_words(self, text):
         """Returns the list of mispelled English words"""
+        if type(text) is not str:
+            raise Exception("The argument should be a string")
+            
         misspelled_list = []
         english_word_set = self.get_english_words()
         all_words = self.words(text)
