@@ -1,16 +1,18 @@
 # TextPy
 ## Introduction
 TextPy is a Python package that helps in extracting contents such as words, sentences, dates, numbers, telephone,
-urls etc from a given text. 
+urls, and mispelled words from a given text. 
+ 
+![alt text](docs/images/logo_transparent.png "Logo Title Text 1")
 
 ## System Requirements
-You need a Python 2.7+ interpreter to run textpy
+You need a Python 2.7+ interpreter to run install and run TextPy.
 
 ## Platform Support:
-Currently, textpy is supported only in Linux and Mac.
+Currently, TextPy is supported only in Linux and Mac.
 
 ## Getting TextPy
-Clone the repository from the link below:
+Open your terminal and clone the repository using the command below:
 ```Bash
 git clone https://github.com/shivapbhusal/textpy.git
 ```
@@ -20,7 +22,7 @@ or download the source code from the link and unzip it.
 https://github.com/shivapbhusal/textpy
 ```
 
-Open your terminal, navigate to the root of the project folder, and enter the command below:
+Navigate to the root of the project directory, and enter the command below.
 ```Bash
 sudo python setup.py install
 ```
@@ -29,75 +31,76 @@ Test and validate the installation using your Python terminal.
 
 ```python
 import textpy
+```
+
+```python
 print(textpy.words('Hello World !'))
 ```
 
-## Method References
-### words(text)
-* ***Description***: Returns the list of all the words in the text.
-* ***Parameter***: A string representing the text to be analyzed.
-* ***Returns***: List of strings representing all the words.
-* ***Exception***: Throws an exception if the argument is not a string.
-
-```python
-import textpy
-all_words = textpy.words('Hello World !')
+Output
+```Bash
+['Hello','World']
 ```
 
-### sentences(text):
-* ***Description***: Returns the list of all the sentences in the text.
+## Function References
+### textpy.words(text)
 * ***Parameter***: A string representing the text to be analyzed.
-* ***Returns***: List of strings representing each sentences.
+* ***Returns***: A list of all the words in the text.
 * ***Exception***: Throws an exception if the argument is not a string.
 
 ```python
 import textpy
-all_words = textpy.sentences('Hello World !')
+all_words = textpy.words('Hello World !') # Returns ['Hello','World']
 ```
 
-### dates(text):
-* ***Description***: Returns the list of all the dates in the text.
+### textpy.sentences(text):
 * ***Parameter***: A string representing the text to be analyzed.
-* ***Returns***: List of strings representing dates in the text.
+* ***Returns***: A list of all the sentences in the text.
 * ***Exception***: Throws an exception if the argument is not a string.
 
 ```python
 import textpy
-all_words = textpy.dates('Hello World !')
+all_sentences = textpy.sentences('Hello World !') # Returns ['Hello World!']
 ```
 
-### numbers(text):
-* ***Description***: Returns the list of all the numbers in the text.
+### textpy.dates(text):
 * ***Parameter***: A string representing the text to be analyzed.
-* ***Returns***: List of strings representing numbers in the text.
+* ***Returns***: A list of all the dates in the text.
 * ***Exception***: Throws an exception if the argument is not a string.
 
 ```python
 import textpy
-all_words = textpy.numbers('Hello World 123!')
+all_dates = textpy.dates(My name is John Doe. Today's date is 05/20/2019') # Returns ['05/20/2019']
 ```
 
-### telephone:
-* ***Description***: Returns the list of all the telephone numbers in the text.
+### textpy.numbers(text):
 * ***Parameter***: A string representing the text to be analyzed.
-* ***Returns***: List of strings representing telephone numbers in the text.
+* ***Returns***: A list of all the numbers in the text.
 * ***Exception***: Throws an exception if the argument is not a string.
 
 ```python
 import textpy
-all_words = textpy.telephone('Hello World 123!')
+all_numbers = textpy.numbers('Hello World 123!') # Returns ['123']
 ```
 
-### urls:
-Returns all the urls from the given text.
-* ***Description***: Returns the list of all the urls in the text.
+### textpy.telephone(text):
 * ***Parameter***: A string representing the text to be analyzed.
-* ***Returns***: List of strings representing urls in the text.
+* ***Returns***: A list all the telephone numbers in the text.
 * ***Exception***: Throws an exception if the argument is not a string.
 
 ```python
 import textpy
-all_words = textpy.urls('Hello World 123!')
+all_words = textpy.telephone('My number is 319-378-8183') # Returns ['319-378-8183']
+```
+
+### textpy.urls(text):
+* ***Parameter***: A string representing the text to be analyzed.
+* ***Returns***: A List of all the urls in the text.
+* ***Exception***: Throws an exception if the argument is not a string.
+
+```python
+import textpy
+all_words = textpy.urls('Explore https://github.com/.') # Returns 'https://github.com/'
 ```
 
 ## Example Usage
@@ -106,7 +109,7 @@ First, get all the sentences from the text using textpy.
 ```python
 import textpy
 text = 'It was the best of the times, it was the worst of the times.'
-sentences = textpy.sentences(text) #Getting all the sentences in the form of list.
+sentences = textpy.sentences(text) # Getting all the sentences in the form of list.
 ```
 
 Then compute the length of all the sentences and take the average.
@@ -119,6 +122,9 @@ avg_length = total/len(sentences)
 
 Full working code
 ```python
+"""
+This program the average length of sentences using textpy.
+"""
 import textpy
 text = 'It was the best of the times, it was the worst of the times.'
 sentences = textpy.sentences(text)
@@ -150,6 +156,9 @@ spelling_accuracy = (len(sentences)-len(misspelled))/len(sentences) #Getting all
 
 Full working code:
 ```python
+"""
+This program computes the spelling accuracy of a text using TextPy.
+"""
 import textpy
 text = 'It was the best of the times, it was the worst of the times.'
 sentences = textpy.words(text) #Getting all the words in the form of list.
@@ -157,8 +166,6 @@ misspelled = textpy.misspelled_words(text)
 spelling_accuracy = (len(sentences)-len(misspelled))/len(sentences)
 
 ```
-
-## License and author info
 
 
 
