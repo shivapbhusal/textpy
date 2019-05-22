@@ -3,7 +3,7 @@
 TextPy is a Python package which can be used in extracting contents such as words, sentences, dates, numbers, telephone,
 urls, and misspelled words from a given text. 
  
-![alt text](docs/images/logo_transparent.png "Logo Title Text 1")
+![alt text | 20%](docs/images/logo_transparent.png "Logo Title Text 1")
 
 ## System Requirement
 You need a Python 2.7+ interpreter to install and run TextPy.
