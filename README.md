@@ -1,7 +1,7 @@
 # TextPy
 ## Introduction
 TextPy is a Python package which can be used in extracting contents such as words, sentences, dates, numbers, telephone,
-urls, and misspelled words from a given text. 
+URLs, and misspelled words from a given text. 
  
 ![alt text](docs/images/logo_transparent.png "Logo Title Text 1")
 
