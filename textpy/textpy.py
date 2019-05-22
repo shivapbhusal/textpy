@@ -24,7 +24,7 @@ class TextPy:
     def words(self, text):
         """Parses the text and gets the list of words."""
         if type(text) is not str:
-            raise Exception("The argument should be a string")
+            raise TypeError("The argument should be a string")
 
         word_seperator = set(['\t', ' ', '?', '.', ',', '!', ':', ';'])
         words = []
@@ -45,7 +45,7 @@ class TextPy:
     def punc_frequency(self, text):
         """Returns the frequency of the punctuations used"""
         if type(text) is not str:
-            raise Exception("The argument should be a string")
+            raise TypeError("The argument should be a string")
 
         punc_list = ['?', ',', ':', ';', ',']
         punc = dict()
@@ -61,7 +61,7 @@ class TextPy:
         """Parses the text and gets the list of sentences."""
 
         if type(text) is not str:
-            raise Exception("The argument should be a string")
+            raise TypeError("The argument should be a string")
 
         sen_seperator = set(['.', '?', '!'])
         sentences = []
@@ -81,7 +81,7 @@ class TextPy:
         """Parses the text and gets all the dates present in the text."""
 
         if type(text) is not str:
-            raise Exception("The argument should be a string")
+            raise TypeError("The argument should be a string")
 
         pattern = re.compile(r'[\d]{1,2}/[\d]{1,2}/[\d]{4}')
         dates = re.findall(pattern, text)
@@ -90,7 +90,7 @@ class TextPy:
     def numbers(self, text):
         """Parses the text and gets the list of all the numbers."""
         if type(text) is not str:
-            raise Exception("The argument should be a string")
+            raise TypeError("The argument should be a string")
 
 
         pattern = re.compile(r'\d+')
@@ -100,7 +100,7 @@ class TextPy:
     def telephone(self, text):
         """Parses the text and gets the list of all the telephone numbers."""
         if type(text) is not str:
-            raise Exception("The argument should be a string")
+            raise TypeError("The argument should be a string")
 
         pattern = re.compile(r'(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})')
         telephone_nums = re.findall(pattern, text)
@@ -109,7 +109,7 @@ class TextPy:
     def urls(self, text):
         """Gets the list of all the Urls in the text."""
         if type(text) is not str:
-            raise Exception("The argument should be a string")
+            raise TypeError("The argument should be a string")
 
         pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
         urls = re.findall(pattern, text)
@@ -118,7 +118,7 @@ class TextPy:
     def misspelled_words(self, text):
         """Returns the list of mispelled English words"""
         if type(text) is not str:
-            raise Exception("The argument should be a string")
+            raise TypeError("The argument should be a string")
             
         misspelled_list = []
         english_word_set = self.get_english_words()

@@ -11,12 +11,14 @@ class TestMethods(unittest.TestCase):
     	result=T.words('Hello World, It was the best of the times3')
     	self.assertEqual(result[0],"Hello")
     	self.assertEqual(len(result),9)
-    
+        self.assertEqual(1,1)
+
     def test_sentences(self):
     	T = tp.TextPy()
     	result = T.sentences("Hello World.My name is Pablo.")
     	self.assertEqual(result[0],"Hello World.")
     	self.assertEqual(result[1],"My name is Pablo.")
+        self.assertRaises(TypeError,T.words(12345))
     
     def test_dates(self):
     	T=tp.TextPy()
