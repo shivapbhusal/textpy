@@ -23,7 +23,7 @@ Alternatively, you can also download the project from the link below.
 https://github.com/shivapbhusal/textpy
 ```
 
-### Installation
+### Install TextPy
 Navigate to the root of the project directory, and enter the command below.
 ```Bash
 sudo python setup.py install
@@ -87,7 +87,7 @@ all_numbers = textpy.numbers('Hello World 123!') # Returns ['123']
 
 ### textpy.telephone(text):
 * ***Parameter***: A string representing the text to be analyzed.
-* ***Returns***: A list all the telephone numbers in the text.
+* ***Returns***: A list of all the telephone numbers in the text.
 * ***Exception***: Throws *TypeError* exception if the argument is not a string.
 
 ```python
@@ -105,13 +105,23 @@ import textpy
 all_words = textpy.urls('Explore https://github.com/.') # Returns 'https://github.com/'
 ```
 
+### textpy.misspelled_words(text):
+* ***Parameter***: A string representing the text to be analyzed.
+* ***Returns***: A List of all the misspelled words in the text.
+* ***Exception***: Throws *TypeError* exception if the argument is not a string.
+
+```python
+import textpy
+all_words = textpy.misspelled_words('Hello Worrlld') # Returns ['Worrlld']
+```
+
 ## Example Usage
 ### Finding out the average length of sentences
 First, get all the sentences from the text using TextPy. 
 ```python
 import textpy
 text = 'It was the best of the times, it was the worst of the times.'
-sentences = textpy.sentences(text) # Getting all the sentences in the form of list.
+sentences = textpy.sentences(text)
 ```
 
 Then compute the length of all the sentences and take the average.
@@ -125,7 +135,7 @@ avg_length = total/len(sentences)
 **Full Working Code**
 ```python
 """
-This program the average length of sentences using textpy.
+This program computes the average length of sentences using TextPy.
 """
 import textpy
 text = 'It was the best of the times, it was the worst of the times.'
@@ -143,17 +153,17 @@ First, get all the words from the text in a list.
 ```python
 import textpy
 text = 'It was the best of the times, it was the worst of the times.'
-sentences = textpy.words(text) #Getting all the words in the form of list.
+sentences = textpy.words(text)
 ```
 
 Then, get the list of misspelled words.
 ```python
-misspelled = textpy.misspelled_words(text) #Getting all the words in the form of list.
+misspelled = textpy.misspelled_words(text)
 ```
 
 Finally, compute the the spelling accuracy.
 ```python
-spelling_accuracy = (len(sentences)-len(misspelled))/len(sentences) #Getting all the words in the form of list.
+spelling_accuracy = (len(sentences)-len(misspelled))/len(sentences)
 ```
 
 **Full Working Code**
@@ -163,10 +173,18 @@ This program computes the spelling accuracy of a text using TextPy.
 """
 import textpy
 text = 'It was the best of the times, it was the worst of the times.'
-sentences = textpy.words(text) #Getting all the words in the form of list.
+sentences = textpy.words(text) 
 misspelled = textpy.misspelled_words(text)
 spelling_accuracy = (len(sentences)-len(misspelled))/len(sentences)
 
+```
+
+## Pull Requests
+Pull requests are highly welcomed and appreciated. 
+Before the request, please ensure that all the test cases pass. 
+
+```Bash
+python test/test_textpy.py
 ```
 
 
