@@ -116,7 +116,7 @@ all_words = textpy.misspelled_words('Hello Worrlld') # Returns ['Worrlld']
 ```
 
 ## Example Usage
-### Finding out the average length of sentences
+### Calculating the average length of sentences in a text.
 First, get all the sentences from the text using TextPy. 
 ```python
 import textpy
