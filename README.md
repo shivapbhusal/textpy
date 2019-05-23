@@ -1,6 +1,6 @@
 # TextPy
 ## Introduction
-TextPy is a Python package which can be used in extracting contents such as words, sentences, dates, arithmetic numbers, telephone numbers,
+TextPy is a Python package which can be used in extracting contents such as words, sentences, dates, numbers, telephone, 
 URLs, and misspelled words from a given text. 
  
 ![alt text](docs/images/logo_transparent.png "Logo Title Text 1")
@@ -77,7 +77,7 @@ all_dates = textpy.dates("My name is John Doe. Today is 05/20/2019") # Returns [
 
 ### textpy.numbers(text):
 * ***Argument***: A string representing the text to be analyzed.
-* ***Returns***: A list of all the arithmetic numbers in the text.
+* ***Returns***: A list of all the numbers in the text.
 * ***Exception***: Throws *TypeError* exception if the argument is not a string.
 
 ```python
