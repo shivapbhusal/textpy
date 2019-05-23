@@ -46,9 +46,9 @@ print(textpy.words("Hello World !"))
 
 ## Function References
 ### textpy.words(text)
-* ***Parameter***: A string representing the text to be analyzed.
+* ***Argument***: A string representing the text to be analyzed.
 * ***Returns***: A list of all the words in the text.
-* ***Exception***: Throws *TypeError* exception if the parameter is not a string.
+* ***Exception***: Throws *TypeError* exception if the argument is not a string.
 
 ```python
 import textpy
@@ -56,9 +56,9 @@ all_words = textpy.words("Hello World !") # Returns ['Hello','World']
 ```
 
 ### textpy.sentences(text):
-* ***Parameter***: A string representing the text to be analyzed.
+* ***Argument***: A string representing the text to be analyzed.
 * ***Returns***: A list of all the sentences in the text.
-* ***Exception***: Throws *TypeError* exception if the parameter is not a string.
+* ***Exception***: Throws *TypeError* exception if the argument is not a string.
 
 ```python
 import textpy
@@ -66,9 +66,9 @@ all_sentences = textpy.sentences("Hello World.I am using TextPy.") # Returns ['H
 ```
 
 ### textpy.dates(text):
-* ***Parameter***: A string representing the text to be analyzed.
+* ***Argument***: A string representing the text to be analyzed.
 * ***Returns***: A list of all the dates in the text.
-* ***Exception***: Throws *TypeError* exception if the parameter is not a string.
+* ***Exception***: Throws *TypeError* exception if the argument is not a string.
 
 ```python
 import textpy
@@ -76,9 +76,9 @@ all_dates = textpy.dates("My name is John Doe. Today is 05/20/2019") # Returns [
 ```
 
 ### textpy.numbers(text):
-* ***Parameter***: A string representing the text to be analyzed.
+* ***Argument***: A string representing the text to be analyzed.
 * ***Returns***: A list of all the numbers in the text.
-* ***Exception***: Throws *TypeError* exception if the parameter is not a string.
+* ***Exception***: Throws *TypeError* exception if the argument is not a string.
 
 ```python
 import textpy
@@ -86,9 +86,9 @@ all_numbers = textpy.numbers('Hello World 123!') # Returns ['123']
 ```
 
 ### textpy.telephone(text):
-* ***Parameter***: A string representing the text to be analyzed.
+* ***Argument***: A string representing the text to be analyzed.
 * ***Returns***: A list of all the telephone numbers in the text.
-* ***Exception***: Throws *TypeError* exception if the parameter is not a string.
+* ***Exception***: Throws *TypeError* exception if the argument is not a string.
 
 ```python
 import textpy
@@ -96,9 +96,9 @@ all_words = textpy.telephone('My number is 319-378-8183') # Returns ['319-378-81
 ```
 
 ### textpy.urls(text):
-* ***Parameter***: A string representing the text to be analyzed.
+* ***Argument***: A string representing the text to be analyzed.
 * ***Returns***: A list of all the URLs in the text.
-* ***Exception***: Throws *TypeError* exception if the parameter is not a string.
+* ***Exception***: Throws *TypeError* exception if the argument is not a string.
 
 ```python
 import textpy
@@ -106,9 +106,9 @@ all_words = textpy.urls('Explore https://github.com/.') # Returns 'https://githu
 ```
 
 ### textpy.misspelled_words(text):
-* ***Parameter***: A string representing the text to be analyzed.
+* ***Argument***: A string representing the text to be analyzed.
 * ***Returns***: A List of all the misspelled words in the text.
-* ***Exception***: Throws *TypeError* exception if the parameter is not a string.
+* ***Exception***: Throws *TypeError* exception if the argument is not a string.
 
 ```python
 import textpy
