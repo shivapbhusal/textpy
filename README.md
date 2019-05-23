@@ -36,7 +36,7 @@ import textpy
 ```
 
 ```python
-print(textpy.words('Hello World !'))
+print(textpy.words("Hello World !"))
 ```
 
 **Output**
@@ -52,7 +52,7 @@ print(textpy.words('Hello World !'))
 
 ```python
 import textpy
-all_words = textpy.words('Hello World !') # Returns ['Hello','World']
+all_words = textpy.words("Hello World !") # Returns ['Hello','World']
 ```
 
 ### textpy.sentences(text):
@@ -62,7 +62,7 @@ all_words = textpy.words('Hello World !') # Returns ['Hello','World']
 
 ```python
 import textpy
-all_sentences = textpy.sentences('Hello World.I am using TextPy.') # Returns ['Hello World.','I am using TextPy.']
+all_sentences = textpy.sentences("Hello World.I am using TextPy.") # Returns ['Hello World.','I am using TextPy.']
 ```
 
 ### textpy.dates(text):
@@ -72,7 +72,7 @@ all_sentences = textpy.sentences('Hello World.I am using TextPy.') # Returns ['H
 
 ```python
 import textpy
-all_dates = textpy.dates(My name is John Doe. Today's date is 05/20/2019') # Returns ['05/20/2019']
+all_dates = textpy.dates("My name is John Doe. Today is 05/20/2019") # Returns ['05/20/2019']
 ```
 
 ### textpy.numbers(text):
@@ -97,7 +97,7 @@ all_words = textpy.telephone('My number is 319-378-8183') # Returns ['319-378-81
 
 ### textpy.urls(text):
 * ***Parameter***: A string representing the text to be analyzed.
-* ***Returns***: A List of all the urls in the text.
+* ***Returns***: A list of all the URLs in the text.
 * ***Exception***: Throws *TypeError* exception if the argument is not a string.
 
 ```python
@@ -121,11 +121,7 @@ First, get all the sentences from the text using TextPy.
 ```python
 import textpy
 
-text = "Marley was dead: to begin with. There is no doubt whatever about that."\ 
-"The register of his burial was signed by the clergyman, the clerk, the undertaker,"\ 
-"and the chief mourner.Scrooge signed it: and Scrooge’s name was good upon ’Change,"\ 
-"for anything he chose to put his hand to. Old Marley was as dead as a door-nail." #Borrowed from A Chrismas Carrol
-
+text = "Hello World.I am using TextPy." 
 sentences = textpy.sentences(text)
 ```
 
@@ -145,9 +141,7 @@ This program computes the average length of sentences using TextPy.
 import textpy
 
 text = "Hello World.I am using TextPy."
-
 sentences = textpy.sentences(text)
-
 total = 0
 for sen in sentences:
 	total += len(sen)
