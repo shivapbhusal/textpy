@@ -174,7 +174,7 @@ This program computes the spelling accuracy of a text using TextPy.
 """
 import textpy
 
-text = 'It was the best of the times, it was the worst of the times.'
+text = 'It was the best of the times, it was the worrrrrst of the times.'
 sentences = textpy.words(text) 
 misspelled = textpy.misspelled_words(text)
 spelling_accuracy = float(len(sentences)-len(misspelled))/float(len(sentences))
