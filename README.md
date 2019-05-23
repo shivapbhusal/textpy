@@ -13,7 +13,7 @@ Currently, TextPy is supported only in Linux and Mac.
 
 ## Installation Guidelines
 ### Download TextPy
-Open your terminal and clone the repository using the command below.
+Open the terminal and clone the repository using the command below.
 ```Bash
 git clone https://github.com/shivapbhusal/textpy.git
 ```
@@ -29,7 +29,7 @@ Navigate to the root of the project directory, and enter the command below.
 sudo python setup.py install
 ```
 
-Test and validate the installation using your Python terminal.
+Test and validate the installation using the Python terminal.
 
 ```python
 import textpy
